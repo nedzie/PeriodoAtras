@@ -23,18 +23,15 @@ namespace PeriodoAtras.ConsoleApp1
                 }
                 return ($"{dias.Hours % 24} horas atrás");
             }
-
-
-
             if (dias.Days < 7)
             {
                 IntParaStringDias dia = (IntParaStringDias)dias.Days;
                 if (dias.Days > 1)
                 {
-                    return ($"{dia} dia se passaram");
+                    return ($"{dia} dia atrás");
                 }
                 else
-                    return ($"{dia} dias se passaram");
+                    return ($"{dia} dias atrás");
             }
             else if (dias.Days >= 7 && dias.Days < 30)
             {
@@ -48,9 +45,9 @@ namespace PeriodoAtras.ConsoleApp1
 
                 if (dias.Days / 7 == 0)
                 {
-                    return ($" se passaram {semanas} semana(s)");
+                    return ($" {semanas} semana(s) atrás");
                 }
-                return ($"se passaram {semanas} semana(s) e {dia} dia(s)");
+                return ($"{semanas} semana(s) e {dia} dia(s) atrás");
             }
             else if (dias.Days >= 30 && dias.Days < 360)
             {
@@ -58,25 +55,22 @@ namespace PeriodoAtras.ConsoleApp1
                 IntParaStringDias semanas;
                 IntParaStringDias meses = (IntParaStringDias)(dias.Days / 30);
 
-
                 if ((dias.Days % 30) / 7 == 2)
                     semanas = (IntParaStringDias)Enum.Parse(typeof(IntParaStringDias), "duas");
 
                 else
                     semanas = (IntParaStringDias)(dias.Days / 7);
 
-
                 if ((dias.Days % 30) / 7 == 0)
                 {
                     if ((dias.Days % 30) / 7 == 0)
                     {
-                        return ($"se passaram {meses} mes(es)");
+                        return ($"{meses} mes(es) atrás");
                     }
-                    return ($"se passaram {meses} mes(es) e {semanas} semana(s)");
+                    return ($"{meses} mes(es) e {semanas} semana(s) atrás");
                 }
 
-
-                return ($"{meses} mese(s) se passaram e {semanas} semana(s) e {dia} dia(s)");
+                return ($"{meses} mese(s) e {semanas} semana(s) e {dia} dia(s) atrás");
             }
             else if (dias.Days >= 360)
             {
@@ -91,25 +85,18 @@ namespace PeriodoAtras.ConsoleApp1
                 else
                     semanas = (IntParaStringDias)((dias.Days % 360) % 30 / 7);
 
-
-
-
                 if ((dias.Days % 360) / 30 % 7 == 0 && (dias.Days % 360) % 30 / 7 == 0 && (dias.Days % 360 / 30) == 0)
 
-                    return ($" se passaram {anos} ano(s)");
+                    return ($"{anos} ano(s) atrás");
 
                 else if ((dias.Days % 360) / 30 % 7 == 0 && (dias.Days % 360) % 30 / 7 == 0)
-                    return ($" se passaram {anos} ano(s) e {meses} mese(s)");
+                    return ($"{anos} ano(s) e {meses} mese(s) atrás");
                 else if ((dias.Days % 360) / 30 % 7 == 0)
-                    return ($"se passaram {dia} ano(s) e {meses} mese(s) e {semanas} semana(s)");
+                    return ($"{dia} ano(s) e {meses} mese(s) e {semanas} semana(s) atrás");
 
-                return ($"se passaram {anos} ano(s) e {meses} mese(s) e {semanas} semana(s) e {dia} dia(s)");
+                return ($"{anos} ano(s) e {meses} mese(s) e {semanas} semana(s) e {dia} dia(s) atrás");
             }
             return "";
         }
     }
-
-
 }
-
-
